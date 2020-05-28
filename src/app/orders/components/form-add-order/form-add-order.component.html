@@ -1,17 +1,20 @@
 <div class="container">
-
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
 
+    <div class="form-group">
+      
       <label for="type">type</label>
       <input formControlName="typePresta" type="text" class="form-control" id="type">
-
+      <div class="alert alert-danger" *ngIf="form.get('typePresta').invalid && form.get('typePresta').touched">champs
+        invalid</div>
     </div>
 
     <div class="form-group">
 
       <label for="client">client</label>
       <input formControlName="client" type="text" class="form-control" id="client">
+      <div class="alert alert-danger" *ngIf="form.get('client').invalid && form.get('client').touched">champs invalid
+      </div>
 
     </div>
 
@@ -21,14 +24,12 @@
       <input formControlName="nbJours" type="number" class="form-control" id="nbJours">
 
     </div>
-
     <div class="form-group">
 
       <label for="tjmHt">tjmHt</label>
       <input formControlName="tjmHt" type="number" class="form-control" id="tjmHt">
 
     </div>
-
     <div class="form-group">
 
       <label for="tva">tva</label>
@@ -40,7 +41,7 @@
 
       <label for="state">state</label>
       <select formControlName="state" class="form-control" id="state">
-        <option *ngFor="let state of states" [ngValue]="state"> {{ state }}</option>
+        <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
       </select>
 
     </div>
@@ -52,7 +53,6 @@
 
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
   </form>
-
 </div>
