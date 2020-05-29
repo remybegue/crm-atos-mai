@@ -2,12 +2,12 @@
   "orders": [
     {
       "tjmHt": 1200,
-      "nbJours": 1,
+      "nbJours": 2,
       "tva": 20,
       "state": "CONFIRMED",
-      "typePresta": "formation",
+      "typePresta": "formation6",
       "client": "M2i",
-      "comment": "merci m2i",
+      "comment": "merci m2i2",
       "id": 1
     },
     {

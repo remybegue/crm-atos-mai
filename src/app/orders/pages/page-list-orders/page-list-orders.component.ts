@@ -4,7 +4,7 @@ import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Btn } from 'src/app/shared/interfaces/btn';
 import { Order } from 'src/app/shared/models/order';
 import { OrdersService } from '../../services/orders.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Route } from '@angular/router';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -23,8 +23,7 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
   public subtitle: string;
   public states = Object.values(StateOrder);
   // private sub: Subscription;
-  constructor(private os: OrdersService, public route: ActivatedRoute) {}
-
+  constructor(private os: OrdersService, public route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     this.btnRoute = {
       label: 'Add an order',
@@ -72,6 +71,10 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
         this.collection$.next(col);
       });
     });
+  }
+
+  public edit(item: Order){
+    this.router.navigate(['orders','edit', item.id]);
   }
 
   public openPopUp() {
