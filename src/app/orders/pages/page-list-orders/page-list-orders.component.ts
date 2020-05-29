@@ -64,7 +64,7 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
     });
   }
 
-  public delete(item: Order, event) {
+  public delete(item: Order) {
     this.os.delete(item).subscribe((res) => {
       //traiter la res de l'api, codes erreur etc...
       this.os.collection.subscribe((col) =>{
